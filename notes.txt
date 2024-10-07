@@ -1,0 +1,3 @@
+curl build uses mbedtls and zlib
+protobuf build uses zlib
+emu build uses all
