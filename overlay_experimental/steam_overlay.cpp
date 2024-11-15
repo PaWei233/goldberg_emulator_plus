@@ -285,7 +285,8 @@ void Steam_Overlay::create_fonts()
         font_builder.AddText(translationPlaying[i]);
         font_builder.AddText(translationAutoAcceptFriendInvite[i]);
     }
-    font_builder.AddRanges(fonts_atlas.GetGlyphRangesDefault());
+    //font_builder.AddRanges(fonts_atlas.GetGlyphRangesDefault());
+    font_builder.AddRanges(fonts_atlas.GetGlyphRangesChineseFull());
 
     font_builder.BuildRanges(&ranges);
     font_cfg.GlyphRanges = ranges.Data;
@@ -1325,11 +1326,14 @@ uint32 Steam_Overlay::apply_global_style_color()
 void Steam_Overlay::render_main_window()
 {
     char tmp[TRANSLATION_BUFFER_SIZE]{};
-    snprintf(tmp, sizeof(tmp), translationRenderer[current_language], (_renderer == nullptr ? "Unknown" : _renderer->GetLibraryName().c_str()));
+    char tmp2[TRANSLATION_BUFFER_SIZE]{};
+    snprintf(tmp, sizeof(tmp), translationRenderer[current_language], (_renderer == nullptr ? "Unknown" : _renderer->GetLibraryName().c_str())); 
+    snprintf(tmp2, sizeof(tmp2), u8"steam模拟器 .by洛小满 (");
     std::string windowTitle{};
     // Note: don't translate this, project and author names are nouns, they must be kept intact for proper referral
     // think of it as translating "Protobuf - Google"
-    windowTitle.append("Ingame Overlay project - Nemirtingas (").append(tmp).append(")");
+    //windowTitle.append("Ingame Overlay project - Nemirtingas (").append(tmp).append(")");
+    windowTitle.append(tmp2).append(tmp).append(")");
 
     bool show = true;
 
