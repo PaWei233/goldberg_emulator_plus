@@ -1328,12 +1328,10 @@ void Steam_Overlay::render_main_window()
     char tmp[TRANSLATION_BUFFER_SIZE]{};
     char tmp2[TRANSLATION_BUFFER_SIZE]{};
     snprintf(tmp, sizeof(tmp), translationRenderer[current_language], (_renderer == nullptr ? "Unknown" : _renderer->GetLibraryName().c_str())); 
-    snprintf(tmp2, sizeof(tmp2), u8"steam模拟器 .by洛小满 (");
     std::string windowTitle{};
     // Note: don't translate this, project and author names are nouns, they must be kept intact for proper referral
     // think of it as translating "Protobuf - Google"
-    //windowTitle.append("Ingame Overlay project - Nemirtingas (").append(tmp).append(")");
-    windowTitle.append(tmp2).append(tmp).append(")");
+    windowTitle.append(u8"steam模拟器 .by洛小满 Ingame Overlay project - Nemirtingas (").append(tmp).append(")");
 
     bool show = true;
 
